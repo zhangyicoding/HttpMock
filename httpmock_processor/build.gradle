@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.google.auto.service:auto-service:${rootProject.ext.auto_service_version}"
+    implementation "com.squareup:javapoet:${rootProject.ext.javapoet_version}"
+    implementation project(path: ':httpmock_annotation')
+    implementation project(path: ':httpmock_common')
+    api "com.google.code.gson:gson:${rootProject.ext.gson_version}"
+}
+
+sourceCompatibility = rootProject.ext.java_version
+targetCompatibility = rootProject.ext.java_version

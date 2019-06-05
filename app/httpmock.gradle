@@ -1,0 +1,9 @@
+task deleteHttpMockDebugFolderInAssets() {
+    android.applicationVariants.all { variant ->
+        if (variant.buildType.name == 'release') {
+            variant.mergeAssets.doLast {
+                delete(fileTree(dir: variant.mergeAssets.outputDir, includes: ['httpmock_debug/']))
+            }
+        }
+    }
+}
