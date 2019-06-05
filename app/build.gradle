@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 
+// kotlin
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 // HttpMock
-// 导入该插件可以在release版本中删除assets路径下的json文件
+// 导入该插件可以在release版本中删除assets路径下的json文件，墙裂建议保留
 apply from: 'httpmock.gradle'
 
 android {
