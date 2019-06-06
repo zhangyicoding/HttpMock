@@ -9,11 +9,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/httpmock" />
-            <option value="$PROJECT_DIR$/httpmock_annotation" />
-            <option value="$PROJECT_DIR$/httpmock_common" />
-            <option value="$PROJECT_DIR$/httpmock_no_op" />
-            <option value="$PROJECT_DIR$/httpmock_processor" />
+            <option value="$PROJECT_DIR$/lib_httpmock" />
+            <option value="$PROJECT_DIR$/lib_httpmock_annotation" />
+            <option value="$PROJECT_DIR$/lib_httpmock_common" />
+            <option value="$PROJECT_DIR$/lib_httpmock_no_op" />
+            <option value="$PROJECT_DIR$/lib_httpmock_processor" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

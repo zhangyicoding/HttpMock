@@ -66,7 +66,7 @@ dependencies {
     releaseImplementation "com.readystatesoftware.chuck:library-no-op:${chuck_version}"
 
     // HttpMock
-    debugImplementation project(path: ':httpmock')
-    releaseImplementation project(path: ':httpmock_no_op')
-    kaptDebug project(path: ':httpmock_processor')// java使用debugAnnotationProcessor
+    debugImplementation project(path: ':lib_httpmock')
+    releaseImplementation project(path: ':lib_httpmock_no_op')
+    kaptDebug project(path: ':lib_httpmock_processor')// java使用debugAnnotationProcessor
 }
