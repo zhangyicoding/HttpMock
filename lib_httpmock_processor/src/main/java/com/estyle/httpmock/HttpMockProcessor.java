@@ -86,6 +86,7 @@ public class HttpMockProcessor extends AbstractProcessor {
             MockEntity mockEntity = new MockEntity();
             mockEntity.setEnable(mock.enable());
             mockEntity.setFileName(mock.fileName());
+            mockEntity.setDelayMillis(mock.delayMillis());
             mockEntity.setUrl(url);
             mockList.add(mockEntity);
         }

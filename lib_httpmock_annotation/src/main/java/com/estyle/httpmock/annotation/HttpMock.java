@@ -12,4 +12,6 @@ public @interface HttpMock {
     String fileName();
 
     boolean enable() default true;
+
+    long delayMillis() default 0L;
 }

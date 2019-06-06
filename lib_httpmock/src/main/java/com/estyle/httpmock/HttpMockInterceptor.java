@@ -21,7 +21,11 @@ public class HttpMockInterceptor implements Interceptor {
     private List<MockEntity> mMockList;
     private boolean mEnable;// 全局启用假数据
 
-    public HttpMockInterceptor(Context context, List<MockEntity> mockList, boolean enable) {
+    public HttpMockInterceptor(
+            Context context,
+            List<MockEntity> mockList,
+            boolean enable
+    ) {
         mContext = context;
         mMockList = mockList;
         mEnable = enable;
@@ -54,6 +58,14 @@ public class HttpMockInterceptor implements Interceptor {
             sb.append(new String(buff, 0, len));
         }
         open.close();
+
+        // 模拟网络延迟，单位ms
+        long delayMillis = mock.getDelayMillis() < 0 ? 0 : mock.getDelayMillis();
+        try {
+            Thread.sleep(delayMillis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // 创建Response
         Buffer buffer = new Buffer().writeUtf8(sb.toString());
