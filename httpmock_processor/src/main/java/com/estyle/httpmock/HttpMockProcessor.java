@@ -99,7 +99,7 @@ public class HttpMockProcessor extends AbstractProcessor {
                 .addStatement("return $S", json)
                 .build();
         TypeSpec httpMockGenerator = TypeSpec.classBuilder("HttpMockGenerator")
-                .superclass(ClassName.get(AbstractHttpMockGenerator.class))
+                .superclass(AbstractHttpMockGenerator.class)
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                 .addMethod(getJSONString)
                 .build();
