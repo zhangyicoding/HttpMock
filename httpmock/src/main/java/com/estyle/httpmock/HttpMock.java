@@ -17,7 +17,8 @@ public class HttpMock {
     public static OkHttpClient.Builder addHttpMockInterceptor(
             Context context,
             OkHttpClient.Builder builder,
-            Class<? extends AbstractHttpMockGenerator> generatorClass
+            Class<? extends AbstractHttpMockGenerator> generatorClass,
+            boolean enable
     ) {
         AbstractHttpMockGenerator generator = null;
         try {
@@ -29,6 +30,6 @@ public class HttpMock {
         Type type = new TypeToken<List<MockEntity>>() {
         }.getType();
         List<MockEntity> mockList = new Gson().fromJson(json, type);
-        return builder.addInterceptor(new HttpMockInterceptor(context, mockList));
+        return builder.addInterceptor(new HttpMockInterceptor(context, mockList, enable));
     }
 }

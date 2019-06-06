@@ -9,7 +9,8 @@ public class HttpMock {
     public static OkHttpClient.Builder addHttpMockInterceptor(
             Context context,
             OkHttpClient.Builder builder,
-            Class<HttpMockGenerator> generatorClass
+            Class<HttpMockGenerator> generatorClass,
+            boolean enable
     ) {
         return builder;
     }

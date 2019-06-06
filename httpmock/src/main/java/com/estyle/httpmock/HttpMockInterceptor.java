@@ -19,15 +19,18 @@ public class HttpMockInterceptor implements Interceptor {
 
     private Context mContext;
     private List<MockEntity> mMockList;
+    private boolean mEnable;// 全局启用假数据
 
-    public HttpMockInterceptor(Context context, List<MockEntity> mockList) {
+    public HttpMockInterceptor(Context context, List<MockEntity> mockList, boolean enable) {
         mContext = context;
         mMockList = mockList;
+        mEnable = enable;
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         Request oldRequest = chain.request();
+        if (!mEnable) return chain.proceed(oldRequest);
 
         String url = oldRequest.url().toString();
 

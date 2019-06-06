@@ -77,7 +77,8 @@ assets/httpmock_debug/dish.json
         val okHttpClientBuilder = OkHttpClient.Builder()
 
         // 添加HttpMockInterceptor后依然返回OkHttpClient.Builder
-        val okHttpClient = HttpMock.addHttpMockInterceptor(context, okHttpClientBuilder, HttpMockGenerator::class.java)
+        // 最后一个参数enable的说明：当为true时，全局可用假数据功能，当false时，全局禁用。
+        val okHttpClient = HttpMock.addHttpMockInterceptor(context, okHttpClientBuilder, HttpMockGenerator::class.java, true)
             .build()
 
         val retrofit = Retrofit.Builder()

@@ -25,8 +25,9 @@ class MyApplication : Application() {
             .addInterceptor(ChuckInterceptor(this))
 
         // 添加HttpMockInterceptor后依然返回OkHttpClient.Builder
-        val client = HttpMock.addHttpMockInterceptor(this, builder, HttpMockGenerator::class.java)
-            .build()
+        val client =
+            HttpMock.addHttpMockInterceptor(this, builder, HttpMockGenerator::class.java, true)
+                .build()
 
         retrofit = Retrofit.Builder()
             .baseUrl("http://www.qubaobei.com/")
