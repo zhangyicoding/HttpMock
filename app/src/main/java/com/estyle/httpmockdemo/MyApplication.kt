@@ -29,6 +29,7 @@ class MyApplication : Application() {
             builder,
             this,
             true,// true表示全局可用假数据，false表示全局禁用，release版不受影响
+            3500L,// 模拟网络延迟时间，单位：ms
             HttpMockGenerator::class.java
         )
             .build()

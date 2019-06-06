@@ -60,14 +60,13 @@ assets/httpmock_debug/dish.json
 ```java
     interface DishService {
 
-        @HttpMock(fileName = "dish.json", enable = true, delayMillis = 3500L)
+        @HttpMock(fileName = "dish.json", enable = true)
         @GET("ios/cf/dish_list.php?stage_id=1&limit=10")
         fun getDish(@Query("page") page: Int): Observable<DishEntity>
     }
 ```
 
    @HttpMock的假数据功能默认是启用的，可以省略enable = true，如果false，则关闭当前网络请求的假数据功能，提升测试场景的灵活性，当然啦，release版是强制关闭假数据功能的，enable是啥都无所谓了。
-   而delayMillis模拟当前网络请求的延迟，单位ms，不声明delayMillis则默认0ms。
 
 
 - 4/ 当debug版至少使用一处@HttpMock后，在Android Studio -> Build -> Rebuild Project（或make应该也行）一下，就生成了一个类HttpMockGenerator，它的作用是保存全部@HttpMock的信息。
@@ -80,11 +79,10 @@ assets/httpmock_debug/dish.json
         // 添加HttpMockInterceptor后依然返回OkHttpClient.Builder
         val okHttpClient = HttpMock.addHttpMockInterceptor(
                     builder,
-                    context,
-                    true,// true表示全局可用假数据功能，false表示全局禁用
+                    this,
+                    true,// true表示全局可用假数据，false表示全局禁用，release版不受影响
+                    3500L,// 模拟网络延迟时间，单位：ms
                     HttpMockGenerator::class.java
-                )
-                    .build()
 
         val retrofit = Retrofit.Builder()
             .client(okHttpClient)

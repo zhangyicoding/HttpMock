@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface DishService {
 
-    @HttpMock(fileName = "dish.json", enable = true, delayMillis = 3500L)
+    @HttpMock(fileName = "dish.json", enable = true)
     @GET("ios/cf/dish_list.php?stage_id=1&limit=10")
     fun getDish(@Query("page") page: Int): Observable<DishEntity>
 }

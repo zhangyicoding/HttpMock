@@ -20,15 +20,18 @@ public class HttpMockInterceptor implements Interceptor {
     private Context mContext;
     private List<MockEntity> mMockList;
     private boolean mEnable;// 全局启用假数据
+    private long mDelayMillis;// 网络延迟，单位ms
 
     public HttpMockInterceptor(
             Context context,
             List<MockEntity> mockList,
-            boolean enable
+            boolean enable,
+            long delayMillis
     ) {
         mContext = context;
         mMockList = mockList;
         mEnable = enable;
+        mDelayMillis = delayMillis < 0 ? 0 : delayMillis;
     }
 
     @Override
@@ -60,9 +63,8 @@ public class HttpMockInterceptor implements Interceptor {
         open.close();
 
         // 模拟网络延迟，单位ms
-        long delayMillis = mock.getDelayMillis() < 0 ? 0 : mock.getDelayMillis();
         try {
-            Thread.sleep(delayMillis);
+            Thread.sleep(mDelayMillis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

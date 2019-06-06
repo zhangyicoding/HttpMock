@@ -5,15 +5,6 @@ public class MockEntity {
     private boolean enable;
     private String fileName;
     private String url;
-    private long delayMillis;
-
-    public long getDelayMillis() {
-        return delayMillis;
-    }
-
-    public void setDelayMillis(long delayMillis) {
-        this.delayMillis = delayMillis;
-    }
 
     public boolean isEnable() {
         return enable;
@@ -44,7 +35,6 @@ public class MockEntity {
         return "MockEntity{" +
                 "enable=" + enable +
                 ", fileName='" + fileName + '\'' +
-                ", delayMillis='" + delayMillis + '\'' +
                 ", url='" + url + '\'' +
                 '}';
     }

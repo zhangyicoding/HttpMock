@@ -5,7 +5,6 @@ import com.estyle.httpmock.common.AbstractHttpMockGenerator;
 import com.estyle.httpmock.common.MockEntity;
 import com.google.auto.service.AutoService;
 import com.google.gson.Gson;
-import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.TypeSpec;
@@ -86,7 +85,6 @@ public class HttpMockProcessor extends AbstractProcessor {
             MockEntity mockEntity = new MockEntity();
             mockEntity.setEnable(mock.enable());
             mockEntity.setFileName(mock.fileName());
-            mockEntity.setDelayMillis(mock.delayMillis());
             mockEntity.setUrl(url);
             mockList.add(mockEntity);
         }
