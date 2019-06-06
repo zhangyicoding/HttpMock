@@ -29,7 +29,7 @@ dependencies {
 }
 ```
 
-httpmock.gradle文件在demo的app/路径中，目前HttpMock还暂时只是本地module形式的dependencies，如何实现上传到jcenter的代码还可以用apply plugin 'balabala'插件这种方式，还请大神们不吝赐教，这也是代码暂时是本地module，没上传到jcenter的根本原因。
+httpmock.gradle文件在demo的lib_httpmock_no_op/路径中，目前HttpMock还暂时只是本地module形式的dependencies，如何实现上传到jcenter的代码还可以用apply plugin 'balabala'插件这种方式，还请大神们不吝赐教，这也是代码暂时是本地module，没上传到jcenter的根本原因。
 
 - 2/ 假数据放在哪不会影响业务代码，前面说到的assets文件夹是个不错的选择，所以我们在assets/httpmock_debug/这个文件夹中存放假数据文件。</br>
 
